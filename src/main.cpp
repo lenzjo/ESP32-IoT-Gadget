@@ -1,14 +1,7 @@
 #include <Arduino.h>
-#include <Adafruit_Sensor.h>
-#include <Adafruit_BME280.h>
+#include "sensor_readings.h"
+#include "settings.h"
 
-void refresh_readings();
-
-#ifndef LED_BUILTIN
-  #define LED_BUILTIN 2
-#endif
-
-#define SEALEVELPRESSURE_HPA (1013.25)
 
 Adafruit_BME280 bme;
 
@@ -23,12 +16,11 @@ void setup() {
     Serial.println("Could not fin a valid BME280 at that address.");
     while (1);
   }
-  
 }
 
 
 void loop() {
-  refresh_readings();
+  refresh_readings(bme);
   delay(2000);
 }
 
