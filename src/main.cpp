@@ -3,7 +3,6 @@
 #include <TFT_eSPI.h>
 #include "settings.h"
 
-
 Adafruit_BME280 bme;
 
 TFT_eSPI tft = TFT_eSPI();
@@ -33,7 +32,6 @@ void setup() {
     Serial.println("Could not fin a valid BME280 at that address.");
     while (1);
   }
-
   tft.fillScreen(bg);
 }
 
