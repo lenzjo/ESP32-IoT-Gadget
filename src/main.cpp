@@ -17,7 +17,7 @@ void setup() {
   Serial.begin(9600);
 
   tft.init();
-  tft.setRotation(1);
+  tft.setRotation(3);
   tft.setTextColor(fg, bg);
   tft.fillScreen(bg);
 
