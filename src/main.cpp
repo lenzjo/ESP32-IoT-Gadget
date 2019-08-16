@@ -13,7 +13,7 @@ uint16_t fg = TFT_WHITE;
 
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
-  Serial.begin(9600);
+//  Serial.begin(9600);
 
   tft.init();
   tft.setRotation(3);
@@ -29,7 +29,7 @@ void setup() {
 
   status = bme.begin(0x76);
   if (!status) {
-    Serial.println("Could not fin a valid BME280 at that address.");
+    tft.println("Could not find a valid BME280 at that address.");
     while (1);
   }
   tft.fillScreen(bg);
