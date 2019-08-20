@@ -10,20 +10,13 @@ TFT_eSPI tft = TFT_eSPI();
 uint16_t bg = TFT_BLACK;
 uint16_t fg = TFT_WHITE;
 
-
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
-//  Serial.begin(9600);
 
   tft.init();
   tft.setRotation(3);
   tft.setTextColor(fg, bg);
   tft.fillScreen(bg);
-
-  tft.setCursor(0, 0);
-  tft.println("Hello");
-  tft.println("Starting BM280 sensor...");
-  delay(5000);
 
   bool status;
 
@@ -32,6 +25,7 @@ void setup() {
     tft.println("Could not find a valid BME280 at that address.");
     while (1);
   }
+      
   tft.fillScreen(bg);
 }
 
