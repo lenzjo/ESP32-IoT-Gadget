@@ -1,7 +1,8 @@
 #include <Arduino.h>
 #include "sensor_readings.h"
-#include <TFT_eSPI.h>
 #include "settings.h"
+#include "bmp_functions.h"
+
 
 Adafruit_BME280 bme;
 
@@ -34,6 +35,7 @@ void setup() {
       
   tft.loadFont("NotoSansBold15");
   tft.fillScreen(bg);
+  drawBmp("/te.bmp", 160, 198, &tft); 
 }
 
 
