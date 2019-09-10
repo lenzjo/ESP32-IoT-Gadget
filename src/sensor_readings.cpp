@@ -17,6 +17,7 @@ void refresh_readings(Adafruit_BME280* bme, TFT_eSPI* tft) {
   f_altitude    = bme->readAltitude(SEALEVELPRESSURE_HPA);
 
   tft->setTextColor(TFT_YELLOW, bg);
+  tft->loadFont("SansSerif-36");
 
   // Temperature
   tft->fillRect(5, 50, 140, 30, bg);

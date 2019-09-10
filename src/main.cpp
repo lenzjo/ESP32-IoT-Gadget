@@ -13,12 +13,18 @@ uint16_t fg = TFT_WHITE;
 void setup() {
   pinMode(LED_BUILTIN, OUTPUT);
 
+  if (!SPIFFS.begin()) {
+    // DEBUGPRINTLN("SPIFFS iniz failed");
+    while(1) yield();
+  }
+
   tft.init();
   tft.setRotation(3);
+  tft.loadFont("SansSerif-36");
   tft.setTextColor(fg, bg);
   tft.fillScreen(bg);
 
-  bool status;
+    bool status;
 
   status = bme.begin(0x76);
   if (!status) {
@@ -26,6 +32,7 @@ void setup() {
     while (1);
   }
       
+  tft.loadFont("NotoSansBold15");
   tft.fillScreen(bg);
 }
 
