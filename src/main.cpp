@@ -37,7 +37,7 @@ void setup() {
   tft.setTextColor(fg, bg);
   tft.fillScreen(bg);
 
-    bool status;
+  bool status;
 
   status = bme.begin(0x76);
   if (!status) {
