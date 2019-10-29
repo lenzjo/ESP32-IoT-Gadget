@@ -3,6 +3,8 @@
 #include "settings.h"
 #include "bmp_functions.h"
 #include <TaskScheduler.h>
+#include "network_config.h"
+
 
 void sensor_readings_update();
 
@@ -44,6 +46,9 @@ void setup() {
     tft.println("Could not find a valid BME280 at that address.");
     while (1);
   }
+
+  // Connect to wifi
+  io.connect();
       
   tft.loadFont("NotoSansBold15");
   tft.fillScreen(bg);
